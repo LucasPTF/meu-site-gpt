@@ -18,9 +18,11 @@ const routes = [
   "/checkout",
   ...productSlugs.map((slug) => `/produto/${slug}`),
 ];
+let compiledStylesheet = "";
 
 function makeStatic(html) {
   return html
+    .replace(/href="\/_next\/static\/css\/[^"]+\.css"/g, `href="${compiledStylesheet}"`)
     .replace(/<link[^>]+rel="modulepreload"[^>]*>/g, "")
     .replace(/<link[^>]+rel="preload"[^>]+as="image"[^>]*>/g, "")
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "")
@@ -43,6 +45,12 @@ for (const entry of await readdir(nextStatic, { withFileTypes: true })) {
     await rm(path.join(nextStatic, entry.name), { recursive: true, force: true });
   }
 }
+
+const cssFiles = (await readdir(path.join(nextStatic, "css"))).filter((file) => file.endsWith(".css"));
+if (cssFiles.length !== 1) {
+  throw new Error(`Esperado exatamente um stylesheet compilado; encontrados: ${cssFiles.join(", ")}`);
+}
+compiledStylesheet = `/_next/static/css/${cssFiles[0]}`;
 
 for (const route of routes) {
   const response = await fetch(new URL(route, baseUrl));
