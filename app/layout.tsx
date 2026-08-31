@@ -25,5 +25,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-BR"><body className={`${geistSans.variable} ${geistMono.variable}`}><StoreProvider><Header />{children}<Footer /></StoreProvider></body></html>;
+  const showEnvironment = process.env.APP_ENV === "development" || process.env.APP_ENV === "staging";
+  return <html lang="pt-BR"><body className={`${geistSans.variable} ${geistMono.variable}`}><StoreProvider><Header showEnvironment={showEnvironment} />{children}<Footer /></StoreProvider></body></html>;
 }

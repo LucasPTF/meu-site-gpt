@@ -8,6 +8,13 @@
       "when": 1788141355723,
       "tag": "0000_lovely_norrin_radd",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1788144962273,
+      "tag": "0001_ancient_bullseye",
+      "breakpoints": true
     }
   ]
 }

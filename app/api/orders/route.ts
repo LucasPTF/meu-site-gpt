@@ -39,9 +39,9 @@ export async function POST(request:Request){
   const now=new Date().toISOString();await ensureOrderStorage();const db=getDb();
   const [existing]=await db.select({id:orders.id,status:orders.status}).from(orders).where(eq(orders.idempotencyKey,idempotencyKey)).limit(1);
   if(existing)return Response.json({orderId:existing.id,status:existing.status,mode:"sandbox",idempotentReplay:true});
-  const orderId=id("ND");const preCac=Number(normalized.reduce((sum,item)=>sum+(item.unitPrice-item.product.operatingCost)*item.quantity,0).toFixed(2));
+  const orderId=id("ND");const preCac=Number(normalized.reduce((sum,item)=>sum+(item.unitPrice-(item.product.operations.operatingCost ?? item.unitPrice))*item.quantity,0).toFixed(2));
   await db.insert(orders).values({id:orderId,idempotencyKey,customerName:name,customerEmail:email,postalCode:cep,shippingCity:city,shippingState:state,paymentMethod:method,status:"manual_review",mode:"sandbox",currency:"BRL",total:authoritativeTotal,preCacMargin:preCac,createdAt:now,updatedAt:now});
-  await db.insert(orderItems).values(normalized.map(item=>({id:id("ITEM"),orderId,productId:item.product.id,quantity:item.quantity,unitPrice:item.unitPrice,unitOperatingCost:item.product.operatingCost,createdAt:now,updatedAt:now})));
+  await db.insert(orderItems).values(normalized.map(item=>({id:id("ITEM"),orderId,productId:item.product.id,quantity:item.quantity,unitPrice:item.unitPrice,unitOperatingCost:item.product.operations.operatingCost ?? item.unitPrice,createdAt:now,updatedAt:now})));
   await db.insert(auditLogs).values({id:id("AUD"),entityType:"order",entityId:orderId,action:"sandbox_order_created",actorType:"customer",afterJson:JSON.stringify({status:"manual_review",total:authoritativeTotal,itemCount:normalized.length}),source:"storefront",createdAt:now});
   return Response.json({orderId,status:"manual_review",mode:"sandbox"},{status:201});
 }

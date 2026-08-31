@@ -9,8 +9,8 @@
       "_record-BdkTR7AP.js"
     ]
   },
-  "_app-rsc-cache-busting-CKHfOIxA.js": {
-    "file": "_next/static/chunks/app-rsc-cache-busting-CKHfOIxA.js",
+  "_app-rsc-cache-busting-CIGVPCDk.js": {
+    "file": "_next/static/chunks/app-rsc-cache-busting-CIGVPCDk.js",
     "name": "app-rsc-cache-busting",
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
@@ -50,8 +50,8 @@
       "_protocol-headers-URL33uU5.js"
     ]
   },
-  "_image-Wl8EAQap.js": {
-    "file": "_next/static/chunks/image-Wl8EAQap.js",
+  "_image-BFWvhRVB.js": {
+    "file": "_next/static/chunks/image-BFWvhRVB.js",
     "name": "image",
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
@@ -67,8 +67,8 @@
       "_framework-BaE7mD_r.js"
     ]
   },
-  "_products-DB5uTxvL.js": {
-    "file": "_next/static/chunks/products-DB5uTxvL.js",
+  "_products-Bce_LO83.js": {
+    "file": "_next/static/chunks/products-Bce_LO83.js",
     "name": "products"
   },
   "_protocol-headers-URL33uU5.js": {
@@ -88,73 +88,71 @@
     "name": "rolldown-runtime"
   },
   "app/carrinho/page.tsx": {
-    "file": "_next/static/chunks/page-BQuDbP4B.js",
+    "file": "_next/static/chunks/page-D4Ds4G65.js",
     "name": "page",
     "src": "app/carrinho/page.tsx",
     "isDynamicEntry": true,
     "imports": [
       "app/components/store-provider.tsx",
-      "_products-DB5uTxvL.js",
-      "_image-Wl8EAQap.js",
+      "_products-Bce_LO83.js",
+      "_image-BFWvhRVB.js",
       "_framework-BaE7mD_r.js",
       "node_modules/vinext/dist/shims/link.js"
     ]
   },
   "app/catalogo/page.tsx": {
-    "file": "_next/static/chunks/page-DdeocPyZ.js",
+    "file": "_next/static/chunks/page-CdKh6AYX.js",
     "name": "page",
     "src": "app/catalogo/page.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "virtual:vinext-app-browser-entry",
+      "_rolldown-runtime-C60lm6uB.js",
       "app/components/product-card.tsx",
       "app/components/store-provider.tsx",
-      "_products-DB5uTxvL.js",
+      "_products-Bce_LO83.js",
       "_framework-BaE7mD_r.js",
       "node_modules/vinext/dist/shims/link.js"
     ]
   },
   "app/checkout/page.tsx": {
-    "file": "_next/static/chunks/page-CtS9VJTm.js",
+    "file": "_next/static/chunks/page-Di2WfW2_.js",
     "name": "page",
     "src": "app/checkout/page.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_rolldown-runtime-C60lm6uB.js",
       "app/components/store-provider.tsx",
-      "_products-DB5uTxvL.js",
+      "_products-Bce_LO83.js",
       "_framework-BaE7mD_r.js",
       "node_modules/vinext/dist/shims/link.js"
     ]
   },
   "app/components/header.tsx": {
-    "file": "_next/static/chunks/header-COS0NxV4.js",
+    "file": "_next/static/chunks/header-DbJMKVuI.js",
     "name": "header",
     "src": "app/components/header.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
-      "virtual:vinext-app-browser-entry",
       "app/components/store-provider.tsx",
       "_framework-BaE7mD_r.js",
       "node_modules/vinext/dist/shims/link.js"
     ]
   },
   "app/components/product-card.tsx": {
-    "file": "_next/static/chunks/product-card-D0Gq09Pm.js",
+    "file": "_next/static/chunks/product-card-CrB4120d.js",
     "name": "product-card",
     "src": "app/components/product-card.tsx",
     "isDynamicEntry": true,
     "imports": [
       "app/components/store-provider.tsx",
-      "_products-DB5uTxvL.js",
-      "_image-Wl8EAQap.js",
+      "_products-Bce_LO83.js",
+      "_image-BFWvhRVB.js",
       "_framework-BaE7mD_r.js",
       "node_modules/vinext/dist/shims/link.js"
     ]
   },
   "app/components/store-provider.tsx": {
-    "file": "_next/static/chunks/store-provider-CgZ0kPeD.js",
+    "file": "_next/static/chunks/store-provider-Cg1OTAp4.js",
     "name": "store-provider",
     "src": "app/components/store-provider.tsx",
     "isDynamicEntry": true,
@@ -164,7 +162,7 @@
     ]
   },
   "app/produto/[slug]/product-actions.tsx": {
-    "file": "_next/static/chunks/product-actions-8FkRfqf6.js",
+    "file": "_next/static/chunks/product-actions-BF-eFbBz.js",
     "name": "product-actions",
     "src": "app/produto/[slug]/product-actions.tsx",
     "isDynamicEntry": true,
@@ -175,7 +173,7 @@
     ]
   },
   "app/rastrear/page.tsx": {
-    "file": "_next/static/chunks/page-Cq2Vo1_q.js",
+    "file": "_next/static/chunks/page-D4QcjCUi.js",
     "name": "page",
     "src": "app/rastrear/page.tsx",
     "isDynamicEntry": true,
@@ -186,7 +184,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/internal/hybrid-client-route-owner.js": {
-    "file": "_next/static/chunks/hybrid-client-route-owner-DqO2MVq0.js",
+    "file": "_next/static/chunks/hybrid-client-route-owner-BrtKdJnR.js",
     "name": "hybrid-client-route-owner",
     "src": "node_modules/vinext/dist/shims/internal/hybrid-client-route-owner.js",
     "isDynamicEntry": true,
@@ -197,7 +195,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "_next/static/chunks/layout-segment-context-xhwCvqaE.js",
+    "file": "_next/static/chunks/layout-segment-context-oKqTo2HM.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -209,7 +207,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/link.js": {
-    "file": "_next/static/chunks/link-asTfKwtX.js",
+    "file": "_next/static/chunks/link-B0Bbm4pE.js",
     "name": "link",
     "src": "node_modules/vinext/dist/shims/link.js",
     "isDynamicEntry": true,
@@ -226,13 +224,13 @@
       "node_modules/vinext/dist/shims/internal/hybrid-client-route-owner.js",
       "virtual:vinext-app-browser-entry",
       "_app-elements-Drg5O4vw.js",
-      "_app-rsc-cache-busting-CKHfOIxA.js",
+      "_app-rsc-cache-busting-CIGVPCDk.js",
       "_app-rsc-render-mode-IDJu5NEE.js",
       "_headers-CeAbe3am.js"
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "_next/static/chunks/index-2AM7_G5i.js",
+    "file": "_next/static/chunks/index-Dw-GlYQ1.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
@@ -240,7 +238,7 @@
       "_rolldown-runtime-C60lm6uB.js",
       "_framework-BaE7mD_r.js",
       "_app-elements-Drg5O4vw.js",
-      "_app-rsc-cache-busting-CKHfOIxA.js",
+      "_app-rsc-cache-busting-CIGVPCDk.js",
       "_headers-CeAbe3am.js",
       "_navigation-errors-wvgRKjB-.js",
       "_hash-D0ldriCF.js",
@@ -257,7 +255,7 @@
       "app/components/store-provider.tsx",
       "app/carrinho/page.tsx",
       "app/components/product-card.tsx",
-      "_image-Wl8EAQap.js",
+      "_image-BFWvhRVB.js",
       "node_modules/vinext/dist/shims/link.js",
       "app/catalogo/page.tsx"
     ]

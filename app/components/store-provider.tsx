@@ -40,6 +40,21 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
+    const forceDocumentNavigation = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const target = event.target instanceof Element ? event.target.closest("a[href]") : null;
+      if (!(target instanceof HTMLAnchorElement) || target.target === "_blank" || target.download) return;
+      const url = new URL(target.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.assign(url.href);
+    };
+    document.addEventListener("click", forceDocumentNavigation, true);
+    return () => document.removeEventListener("click", forceDocumentNavigation, true);
+  }, []);
+
+  useEffect(() => {
     if (hydrated) localStorage.setItem("nordly-cart", JSON.stringify(cart));
   }, [cart, hydrated]);
 
