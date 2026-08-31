@@ -1,0 +1,265 @@
+{
+  "_app-elements-Drg5O4vw.js": {
+    "file": "_next/static/chunks/app-elements-Drg5O4vw.js",
+    "name": "app-elements",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BaE7mD_r.js",
+      "_hash-D0ldriCF.js",
+      "_record-BdkTR7AP.js"
+    ]
+  },
+  "_app-rsc-cache-busting-CKHfOIxA.js": {
+    "file": "_next/static/chunks/app-rsc-cache-busting-CKHfOIxA.js",
+    "name": "app-rsc-cache-busting",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_app-rsc-render-mode-IDJu5NEE.js",
+      "_headers-CeAbe3am.js",
+      "_deployment-id-DFhHa9wO.js",
+      "_hash-D0ldriCF.js"
+    ]
+  },
+  "_app-rsc-render-mode-IDJu5NEE.js": {
+    "file": "_next/static/chunks/app-rsc-render-mode-IDJu5NEE.js",
+    "name": "app-rsc-render-mode",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js"
+    ]
+  },
+  "_deployment-id-DFhHa9wO.js": {
+    "file": "_next/static/chunks/deployment-id-DFhHa9wO.js",
+    "name": "deployment-id"
+  },
+  "_framework-BaE7mD_r.js": {
+    "file": "_next/static/chunks/framework-BaE7mD_r.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js"
+    ]
+  },
+  "_hash-D0ldriCF.js": {
+    "file": "_next/static/chunks/hash-D0ldriCF.js",
+    "name": "hash"
+  },
+  "_headers-CeAbe3am.js": {
+    "file": "_next/static/chunks/headers-CeAbe3am.js",
+    "name": "headers",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_protocol-headers-URL33uU5.js"
+    ]
+  },
+  "_image-Wl8EAQap.js": {
+    "file": "_next/static/chunks/image-Wl8EAQap.js",
+    "name": "image",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BaE7mD_r.js",
+      "_deployment-id-DFhHa9wO.js"
+    ]
+  },
+  "_navigation-errors-wvgRKjB-.js": {
+    "file": "_next/static/chunks/navigation-errors-wvgRKjB-.js",
+    "name": "navigation-errors",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BaE7mD_r.js"
+    ]
+  },
+  "_products-DB5uTxvL.js": {
+    "file": "_next/static/chunks/products-DB5uTxvL.js",
+    "name": "products"
+  },
+  "_protocol-headers-URL33uU5.js": {
+    "file": "_next/static/chunks/protocol-headers-URL33uU5.js",
+    "name": "protocol-headers"
+  },
+  "_query-DWOJKAZx.js": {
+    "file": "_next/static/chunks/query-DWOJKAZx.js",
+    "name": "query"
+  },
+  "_record-BdkTR7AP.js": {
+    "file": "_next/static/chunks/record-BdkTR7AP.js",
+    "name": "record"
+  },
+  "_rolldown-runtime-C60lm6uB.js": {
+    "file": "_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+    "name": "rolldown-runtime"
+  },
+  "app/carrinho/page.tsx": {
+    "file": "_next/static/chunks/page-BQuDbP4B.js",
+    "name": "page",
+    "src": "app/carrinho/page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "app/components/store-provider.tsx",
+      "_products-DB5uTxvL.js",
+      "_image-Wl8EAQap.js",
+      "_framework-BaE7mD_r.js",
+      "node_modules/vinext/dist/shims/link.js"
+    ]
+  },
+  "app/catalogo/page.tsx": {
+    "file": "_next/static/chunks/page-DdeocPyZ.js",
+    "name": "page",
+    "src": "app/catalogo/page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "virtual:vinext-app-browser-entry",
+      "app/components/product-card.tsx",
+      "app/components/store-provider.tsx",
+      "_products-DB5uTxvL.js",
+      "_framework-BaE7mD_r.js",
+      "node_modules/vinext/dist/shims/link.js"
+    ]
+  },
+  "app/checkout/page.tsx": {
+    "file": "_next/static/chunks/page-CtS9VJTm.js",
+    "name": "page",
+    "src": "app/checkout/page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "app/components/store-provider.tsx",
+      "_products-DB5uTxvL.js",
+      "_framework-BaE7mD_r.js",
+      "node_modules/vinext/dist/shims/link.js"
+    ]
+  },
+  "app/components/header.tsx": {
+    "file": "_next/static/chunks/header-COS0NxV4.js",
+    "name": "header",
+    "src": "app/components/header.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "app/components/store-provider.tsx",
+      "_framework-BaE7mD_r.js",
+      "node_modules/vinext/dist/shims/link.js"
+    ]
+  },
+  "app/components/product-card.tsx": {
+    "file": "_next/static/chunks/product-card-D0Gq09Pm.js",
+    "name": "product-card",
+    "src": "app/components/product-card.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "app/components/store-provider.tsx",
+      "_products-DB5uTxvL.js",
+      "_image-Wl8EAQap.js",
+      "_framework-BaE7mD_r.js",
+      "node_modules/vinext/dist/shims/link.js"
+    ]
+  },
+  "app/components/store-provider.tsx": {
+    "file": "_next/static/chunks/store-provider-CgZ0kPeD.js",
+    "name": "store-provider",
+    "src": "app/components/store-provider.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BaE7mD_r.js"
+    ]
+  },
+  "app/produto/[slug]/product-actions.tsx": {
+    "file": "_next/static/chunks/product-actions-8FkRfqf6.js",
+    "name": "product-actions",
+    "src": "app/produto/[slug]/product-actions.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "app/components/store-provider.tsx",
+      "_framework-BaE7mD_r.js"
+    ]
+  },
+  "app/rastrear/page.tsx": {
+    "file": "_next/static/chunks/page-Cq2Vo1_q.js",
+    "name": "page",
+    "src": "app/rastrear/page.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-BaE7mD_r.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/internal/hybrid-client-route-owner.js": {
+    "file": "_next/static/chunks/hybrid-client-route-owner-DqO2MVq0.js",
+    "name": "hybrid-client-route-owner",
+    "src": "node_modules/vinext/dist/shims/internal/hybrid-client-route-owner.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "virtual:vinext-app-browser-entry",
+      "_protocol-headers-URL33uU5.js",
+      "_query-DWOJKAZx.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "_next/static/chunks/layout-segment-context-xhwCvqaE.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-BaE7mD_r.js",
+      "_navigation-errors-wvgRKjB-.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/link.js": {
+    "file": "_next/static/chunks/link-asTfKwtX.js",
+    "name": "link",
+    "src": "node_modules/vinext/dist/shims/link.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-BaE7mD_r.js",
+      "_deployment-id-DFhHa9wO.js",
+      "_protocol-headers-URL33uU5.js",
+      "_query-DWOJKAZx.js",
+      "_record-BdkTR7AP.js"
+    ],
+    "dynamicImports": [
+      "node_modules/vinext/dist/shims/internal/hybrid-client-route-owner.js",
+      "virtual:vinext-app-browser-entry",
+      "_app-elements-Drg5O4vw.js",
+      "_app-rsc-cache-busting-CKHfOIxA.js",
+      "_app-rsc-render-mode-IDJu5NEE.js",
+      "_headers-CeAbe3am.js"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "_next/static/chunks/index-2AM7_G5i.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-BaE7mD_r.js",
+      "_app-elements-Drg5O4vw.js",
+      "_app-rsc-cache-busting-CKHfOIxA.js",
+      "_headers-CeAbe3am.js",
+      "_navigation-errors-wvgRKjB-.js",
+      "_hash-D0ldriCF.js",
+      "_record-BdkTR7AP.js"
+    ],
+    "dynamicImports": [
+      "node_modules/vinext/dist/shims/internal/hybrid-client-route-owner.js",
+      "virtual:vinext-app-browser-entry",
+      "app/components/header.tsx",
+      "node_modules/vinext/dist/shims/layout-segment-context.js",
+      "app/produto/[slug]/product-actions.tsx",
+      "app/checkout/page.tsx",
+      "app/rastrear/page.tsx",
+      "app/components/store-provider.tsx",
+      "app/carrinho/page.tsx",
+      "app/components/product-card.tsx",
+      "_image-Wl8EAQap.js",
+      "node_modules/vinext/dist/shims/link.js",
+      "app/catalogo/page.tsx"
+    ]
+  }
+}
