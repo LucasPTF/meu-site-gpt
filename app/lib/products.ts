@@ -1,4 +1,5 @@
-export type TagGroup = "category" | "type" | "use" | "compatibility" | "feature" | "price";
+export type TagGroup = "category" | "type" | "use" | "connectivity" | "compatibility" | "feature" | "price" | "shipping" | "merchandising";
+export type PublicFilterGroup = Exclude<TagGroup, "shipping" | "merchandising"> | "brand";
 
 export type TagDefinition = {
   slug: string;
@@ -7,11 +8,20 @@ export type TagDefinition = {
 };
 
 export type ProductMedia = {
+  id: string;
+  type: "PRODUCT" | "DETAIL" | "LIFESTYLE" | "CONNECTIVITY";
   src: string;
+  localPath: string;
   alt: string;
   sourceUrl: string;
   sourceLabel: string;
+  sourceType: "MANUFACTURER" | "SUPPLIER" | "DISTRIBUTOR" | "OWN_MEDIA";
+  isPrimary: boolean;
+  sortOrder: number;
+  verifiedAt: string;
 };
+
+type ProductMediaSeed = Pick<ProductMedia, "src" | "alt" | "sourceUrl" | "sourceLabel"> & Partial<Pick<ProductMedia, "type" | "sourceType">>;
 
 export type Product = {
   id: string;
@@ -25,6 +35,7 @@ export type Product = {
   productType: string;
   price: number;
   pixPrice: number;
+  compareAtPrice?: number;
   accent: string;
   badge?: string;
   benefit: string;
@@ -35,6 +46,7 @@ export type Product = {
   contents: string[];
   warranty: string;
   sla: string;
+  shippingType: "estoque-nacional" | "envio-internacional" | "confirmacao-manual";
   tags: string[];
   media: ProductMedia[];
   image: string;
@@ -64,6 +76,7 @@ export const tagDefinitions: TagDefinition[] = [
   { slug: "notebook", label: "Notebook", group: "category" },
   { slug: "hardware", label: "Hardware", group: "category" },
   { slug: "setup", label: "Setup", group: "category" },
+  { slug: "acessorios", label: "Acessórios", group: "category" },
   { slug: "microfone", label: "Microfone", group: "type" },
   { slug: "mixer", label: "Mixer", group: "type" },
   { slug: "headset", label: "Headset", group: "type" },
@@ -76,35 +89,135 @@ export const tagDefinitions: TagDefinition[] = [
   { slug: "suporte-notebook", label: "Suporte para notebook", group: "type" },
   { slug: "luminaria", label: "Luminária", group: "type" },
   { slug: "cabo-usb-c", label: "Cabo USB-C", group: "type" },
+  { slug: "fone-tws", label: "Fone TWS", group: "type" },
+  { slug: "ssd", label: "SSD", group: "type" },
   { slug: "gaming", label: "Gaming", group: "use" },
   { slug: "streaming", label: "Streaming", group: "use" },
   { slug: "home-office", label: "Home office", group: "use" },
   { slug: "upgrade", label: "Upgrade", group: "use" },
   { slug: "mobilidade", label: "Mobilidade", group: "use" },
+  { slug: "produtividade", label: "Produtividade", group: "use" },
+  { slug: "criacao-conteudo", label: "Criação de conteúdo", group: "use" },
+  { slug: "podcast", label: "Podcast", group: "use" },
+  { slug: "organizacao", label: "Organização", group: "use" },
+  { slug: "upgrade-pc", label: "Upgrade de PC", group: "use" },
+  { slug: "com-fio", label: "Com fio", group: "connectivity" },
+  { slug: "wireless-2-4ghz", label: "Wireless 2,4 GHz", group: "connectivity" },
+  { slug: "bluetooth", label: "Bluetooth", group: "connectivity" },
+  { slug: "usb-a", label: "USB-A", group: "connectivity" },
+  { slug: "usb-c", label: "USB-C", group: "connectivity" },
+  { slug: "xlr", label: "XLR", group: "connectivity" },
+  { slug: "p2", label: "P2 / 3,5 mm", group: "connectivity" },
+  { slug: "hdmi", label: "HDMI", group: "connectivity" },
   { slug: "xbox", label: "Xbox", group: "compatibility" },
   { slug: "pc", label: "PC", group: "compatibility" },
   { slug: "playstation", label: "PlayStation", group: "compatibility" },
   { slug: "mac", label: "Mac", group: "compatibility" },
-  { slug: "usb-c", label: "USB-C", group: "compatibility" },
-  { slug: "abnt2", label: "ABNT2", group: "compatibility" },
-  { slug: "com-fio", label: "Com fio", group: "feature" },
+  { slug: "windows", label: "Windows", group: "compatibility" },
+  { slug: "android", label: "Android", group: "compatibility" },
+  { slug: "ios", label: "iOS", group: "compatibility" },
+  { slug: "switch", label: "Nintendo Switch", group: "compatibility" },
+  { slug: "abnt2", label: "ABNT2", group: "feature" },
   { slug: "hall-effect", label: "Hall Effect", group: "feature" },
   { slug: "hot-swap", label: "Hot-swap", group: "feature" },
   { slug: "rgb", label: "RGB", group: "feature" },
   { slug: "portatil", label: "Portátil", group: "feature" },
-  { slug: "ate-200", label: "Até R$ 200", group: "price" },
+  { slug: "mecanico", label: "Mecânico", group: "feature" },
+  { slug: "ultraleve", label: "Ultraleve", group: "feature" },
+  { slug: "100w-pd", label: "100W PD", group: "feature" },
+  { slug: "10gbps", label: "10 Gbps", group: "feature" },
+  { slug: "nvme", label: "NVMe", group: "feature" },
+  { slug: "ergonomico", label: "Ergonômico", group: "feature" },
+  { slug: "ate-100", label: "Até R$ 100", group: "price" },
+  { slug: "100-200", label: "R$ 100 a R$ 200", group: "price" },
   { slug: "200-300", label: "R$ 200 a R$ 300", group: "price" },
-  { slug: "acima-300", label: "Acima de R$ 300", group: "price" },
+  { slug: "300-500", label: "R$ 300 a R$ 500", group: "price" },
+  { slug: "acima-500", label: "Acima de R$ 500", group: "price" },
+  { slug: "estoque-nacional", label: "Estoque nacional", group: "shipping" },
+  { slug: "envio-internacional", label: "Envio internacional", group: "shipping" },
+  { slug: "confirmacao-manual", label: "Envio a confirmar", group: "shipping" },
+  { slug: "hero", label: "Hero", group: "merchandising" },
+  { slug: "core", label: "Core", group: "merchandising" },
+  { slug: "complementar", label: "Complementar", group: "merchandising" },
+  { slug: "cross-sell", label: "Cross-sell", group: "merchandising" },
 ];
 
-type ProductSeed = Omit<Product, "image" | "active" | "featured"> & { featured?: boolean };
+type ProductSeed = Omit<Product, "image" | "active" | "featured" | "media" | "shippingType"> & { featured?: boolean; media: ProductMediaSeed[]; shippingType?: Product["shippingType"] };
 
-const makeProduct = (product: ProductSeed): Product => ({
+export const normalizeText = (value: string) =>
+  value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR").trim();
+
+const priceTag = (price: number) => price <= 100 ? "ate-100" : price <= 200 ? "100-200" : price <= 300 ? "200-300" : price <= 500 ? "300-500" : "acima-500";
+const optimizedPath = (src: string) => src.replace(/\.(png|jpe?g)$/i, ".webp");
+const technicalTags = (product: ProductSeed) => {
+  const text = normalizeText([product.name, product.description, ...product.features, ...product.compatibility, ...product.specifications.flatMap((item) => [item.label, item.value])].join(" "));
+  const derived: string[] = [];
+  const addWhen = (condition: boolean, tag: string) => { if (condition) derived.push(tag); };
+  addWhen(text.includes("usb-c"), "usb-c");
+  addWhen(text.includes("usb-a"), "usb-a");
+  addWhen(text.includes("xlr"), "xlr");
+  addWhen(text.includes("3,5 mm"), "p2");
+  addWhen(text.includes("hdmi"), "hdmi");
+  addWhen(text.includes("mecanic"), "mecanico");
+  addWhen(text.includes("53 g") || text.includes("ultraleve"), "ultraleve");
+  addWhen(text.includes("100w"), "100w-pd");
+  addWhen(text.includes("10 gbps") || text.includes("10gbps"), "10gbps");
+  addWhen(text.includes("nvme"), "nvme");
+  addWhen(text.includes("ergonom"), "ergonomico");
+  addWhen(text.includes("windows"), "windows");
+  addWhen(["microfone", "mixer"].some((value) => normalizeText(product.productType).includes(value)), "criacao-conteudo");
+  addWhen(normalizeText(product.productType).includes("microfone"), "podcast");
+  addWhen(["hub", "suporte", "cabo"].some((value) => normalizeText(product.productType).includes(value)), "produtividade");
+  addWhen(["hub", "suporte", "cabo"].some((value) => normalizeText(product.productType).includes(value)), "acessorios");
+  addWhen(normalizeText(product.productType).includes("case nvme") || normalizeText(product.productType).includes("memoria"), "upgrade-pc");
+  return derived;
+};
+
+const secondaryMedia: Record<string, ProductMediaSeed[]> = {
+  "gamesir-g7-se": [{ src: "/products/gamesir-g7-se-2.webp", alt: "Controle GameSir G7 SE branco em vista alternativa", sourceUrl: "https://gamesir.com/products/gamesir-g7-se/buy?variant=44095867453674", sourceLabel: "GameSir", type: "DETAIL" }],
+  "gamesir-kaleid": [{ src: "/products/gamesir-kaleid-2.webp", alt: "Controle GameSir Kaleid com detalhes da carcaça transparente e RGB", sourceUrl: "https://gamesir.com/products/gamesir-kaleid-xbox-controller/buy", sourceLabel: "GameSir", type: "DETAIL" }],
+  "fifine-am8": [{ src: "/products/fifine-am8-2.webp", alt: "Microfone FIFINE AM8 preto em vista alternativa oficial", sourceUrl: "https://fifinemicrophone.com/products/fifine-ampligame-am8-microphone", sourceLabel: "FIFINE", type: "DETAIL" }],
+  "fifine-sc3": [{ src: "/products/fifine-sc3-2.webp", alt: "Mixer FIFINE SC3 preto visto pelo lado direito", sourceUrl: "https://fifinemicrophone.com/products/fifine-ampligame-sc3-audio-mixer", sourceLabel: "FIFINE", type: "CONNECTIVITY" }],
+  "hyperx-cloud-stinger-2-core": [{ src: "/products/hyperx-cloud-stinger-2-core-2.webp", alt: "Headset HyperX Cloud Stinger 2 Core visto de perfil", sourceUrl: "https://row.hyperx.com/pt/products/hyperx-cloud-stinger-2-core-wired-gaming-headset", sourceLabel: "HyperX", type: "DETAIL" }],
+  "logitech-g203": [{ src: "/products/logitech-g203-2.webp", alt: "Mouse Logitech G203 lilás visto de perfil", sourceUrl: "https://www.logitechg.com/en-gb/shop/p/g203-lightsync-rgb-gaming-mouse", sourceLabel: "Logitech G", type: "DETAIL" }],
+  "hyperx-pulsefire-haste-2": [{ src: "/products/hyperx-haste-2-2.webp", alt: "Mouse HyperX Pulsefire Haste 2 branco visto por trás", sourceUrl: "https://row.hyperx.com/collections/gaming-mice/products/hyperx-pulsefire-haste-2-gaming-mouse", sourceLabel: "HyperX", type: "DETAIL" }],
+  "redragon-kumara-k552": [{ src: "/products/redragon-kumara-2.webp", alt: "Teclado Redragon Kumara K552-2 ABNT2 em vista alternativa", sourceUrl: "https://www.redragon.com.br/kumarasingle-brown", sourceLabel: "Redragon Brasil", type: "DETAIL" }],
+  "redragon-fizz-k617": [{ src: "/products/redragon-fizz-2.webp", alt: "Teclado Redragon Fizz K617 ABNT2 em vista alternativa", sourceUrl: "https://www.redragon.com.br/fizzrgb", sourceLabel: "Redragon Brasil", type: "DETAIL" }],
+  "ugreen-revodok-105": [{ src: "/products/ugreen-revodok-2.webp", alt: "Hub UGREEN Revodok 105 conectado a um notebook", sourceUrl: "https://www.ugreen.com/products/usa-15495", sourceLabel: "UGREEN", type: "LIFESTYLE" }],
+  "orico-m2pv-c3": [{ src: "/products/orico-m2pv-c3-2.webp", alt: "Case ORICO M2PV-C3 em imagem de detalhe oficial", sourceUrl: "https://www.orico.cc/index/product/detail/2335.html", sourceLabel: "ORICO", type: "DETAIL" }],
+  "ugreen-stand": [{ src: "/products/ugreen-stand-2.webp", alt: "Suporte UGREEN para notebook em uso sobre a mesa", sourceUrl: "https://eu.ugreen.com/en-ch/products/ugreen-laptop-stand-for-desk-adjustable", sourceLabel: "UGREEN", type: "LIFESTYLE" }],
+  "baseus-iwok2": [{ src: "/products/baseus-iwok2-2.webp", alt: "Lightbar Baseus i-Wok 2 instalada sobre um monitor", sourceUrl: "https://pl.baseus.com/products/baseus-i-wok2-lampka-led-na-monitor-do-pulpitu-oswietlenie-ekranu-czarny-dgiw000101", sourceLabel: "Baseus", type: "LIFESTYLE" }],
+  "ugreen-uno-100w": [{ src: "/products/ugreen-uno-2.webp", alt: "Cabo UGREEN Uno USB-C 100W em imagem oficial de detalhe", sourceUrl: "https://eu.ugreen.com/products/ugreen-uno-usb-c-cable-100w", sourceLabel: "UGREEN", type: "DETAIL" }],
+};
+
+const makeProduct = (product: ProductSeed): Product => {
+  const allMedia = [...product.media, ...(secondaryMedia[product.slug] ?? [])];
+  return ({
   ...product,
-  image: product.media[0].src,
+  tags: [...new Set([
+    ...product.tags.filter((tag) => !["ate-200", "acima-300"].includes(tag)),
+    ...technicalTags(product), priceTag(product.price), product.operations.role.toLocaleLowerCase("pt-BR"),
+    product.shippingType ?? "confirmacao-manual",
+  ])],
+  shippingType: product.shippingType ?? "confirmacao-manual",
+  media: allMedia.map((media, index) => ({
+    id: `${product.slug}-media-${index + 1}`,
+    type: media.type ?? (index === 0 ? "PRODUCT" : "DETAIL"),
+    src: optimizedPath(media.src),
+    localPath: optimizedPath(media.src),
+    alt: media.alt,
+    sourceUrl: media.sourceUrl,
+    sourceLabel: media.sourceLabel,
+    sourceType: media.sourceType ?? "MANUFACTURER",
+    isPrimary: index === 0,
+    sortOrder: index,
+    verifiedAt: "2026-08-31",
+  })),
+  image: optimizedPath(allMedia[0].src),
   active: true,
   featured: product.featured ?? false,
-});
+  });
+};
 
 export const products: Product[] = [
   makeProduct({
@@ -188,9 +301,6 @@ export const complementaryProducts = activeProducts.filter((product) => product.
 export const brl = (value: number) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(value);
 
-export const normalizeText = (value: string) =>
-  value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR").trim();
-
 const synonyms: Record<string, string[]> = {
   fone: ["headset", "audio"], joystick: ["controle", "gamepad"], teclado: ["keyboard"], mouse: ["mice"],
   ram: ["memoria", "ddr4"], dock: ["hub", "adaptador"], microfone: ["mic"], notebook: ["laptop"],
@@ -223,7 +333,27 @@ export const getRelatedProducts = (product: Product, limit = 4) => activeProduct
   .slice(0, limit)
   .map(({ candidate }) => candidate);
 
+export const brandSlug = (brand: string) => normalizeText(brand).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+export const publicFilterGroups: { key: PublicFilterGroup; label: string }[] = [
+  { key: "category", label: "Categoria" }, { key: "type", label: "Tipo de produto" },
+  { key: "brand", label: "Marca" }, { key: "connectivity", label: "Conexão" },
+  { key: "use", label: "Uso" }, { key: "compatibility", label: "Compatibilidade" },
+  { key: "feature", label: "Características" }, { key: "price", label: "Faixa de preço" },
+];
+
+export type CatalogSelection = Partial<Record<PublicFilterGroup, string[]>>;
+
+export const productMatchesFilter = (product: Product, group: PublicFilterGroup, value: string) =>
+  group === "brand" ? brandSlug(product.brand) === value : product.tags.includes(value);
+
+export const filterProducts = (items: Product[], selected: CatalogSelection, query = "") => items.filter((product) =>
+  publicFilterGroups.every(({ key }) => {
+    const values = selected[key] ?? [];
+    return !values.length || values.some((value) => productMatchesFilter(product, key, value));
+  }) && matchesSearch(product, query));
+
 export const tagGroups = tagDefinitions.reduce<Record<TagGroup, TagDefinition[]>>((groups, tag) => {
   groups[tag.group].push(tag);
   return groups;
-}, { category: [], type: [], use: [], compatibility: [], feature: [], price: [] });
+}, { category: [], type: [], use: [], connectivity: [], compatibility: [], feature: [], price: [], shipping: [], merchandising: [] });

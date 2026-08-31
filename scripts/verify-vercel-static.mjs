@@ -2,7 +2,7 @@ import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
-const requiredFiles = ["index.html", "catalogo/index.html", "pesquisa/index.html", "products/gamesir-g7-se.png"];
+const requiredFiles = ["index.html", "catalogo/index.html", "pesquisa/index.html", "products/gamesir-g7-se.webp", "og-v2.png"];
 for (const file of requiredFiles) await access(path.join(root, "vercel-static", file));
 
 const homepage = await readFile(path.join(root, "vercel-static", "index.html"), "utf8");

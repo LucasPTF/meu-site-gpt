@@ -17,9 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: base,
     title: { default: "Nordly — tecnologia que vale o preço", template: "%s | Nordly" },
-    description: "Marca brasileira de curadoria internacional de tecnologia, com preço calculado e operação transparente.",
-    openGraph: { title: "Nordly — tecnologia que vale o preço", description: "Curadoria brasileira de tecnologia global.", type: "website", locale: "pt_BR", images: [{ url: new URL("/og.png", base).toString(), width: 1200, height: 630, alt: "Nordly — tecnologia que vale o preço" }] },
-    twitter: { card: "summary_large_image", title: "Nordly — tecnologia que vale o preço", description: "Curadoria brasileira de tecnologia global.", images: [new URL("/og.png", base).toString()] },
+    description: "Loja de tecnologia com modelos verificáveis, filtros úteis e produtos escolhidos pelo que entregam.",
+    openGraph: { title: "Nordly — tecnologia que vale o preço", description: "Tecnologia que vale cada real.", type: "website", locale: "pt_BR", images: [{ url: new URL("/og-v2.png", base).toString(), width: 1200, height: 630, alt: "Nordly — tecnologia que vale cada real" }] },
+    twitter: { card: "summary_large_image", title: "Nordly — tecnologia que vale o preço", description: "Tecnologia que vale cada real.", images: [new URL("/og-v2.png", base).toString()] },
     robots: { index: true, follow: true },
   };
 }

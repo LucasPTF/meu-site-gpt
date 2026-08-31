@@ -4,9 +4,17 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useStore } from "./store-provider";
 
-const categories = [
-  ["Mouses", "mouses"], ["Áudio", "audio"], ["Controles", "controles"], ["Teclados", "teclados"],
-  ["Notebook", "notebook"], ["Hardware", "hardware"], ["Setup", "setup"],
+const quickLinks = [
+  ["Ofertas", "price=ate-100&price=100-200"], ["Fones", "type=headset"], ["Microfones", "type=microfone"],
+  ["Mouses", "category=mouses"], ["Teclados", "category=teclados"], ["Controles", "category=controles"],
+  ["Hardware", "category=hardware"], ["Setup", "category=setup"],
+];
+
+const megaGroups = [
+  { title: "Áudio", links: [["Fones e headsets", "type=headset"], ["Microfones", "type=microfone"], ["Interfaces e mixers", "type=mixer"]] },
+  { title: "Gaming", links: [["Mouses", "category=mouses"], ["Teclados", "category=teclados"], ["Controles", "category=controles"]] },
+  { title: "Hardware", links: [["Memória RAM", "type=memoria-ram"], ["Cases NVMe", "type=case-nvme"], ["Hubs", "type=hub-usb-c"]] },
+  { title: "Setup", links: [["Suportes", "type=suporte-notebook"], ["Iluminação", "type=luminaria"], ["Cabos", "type=cabo-usb-c"]] },
 ];
 
 export function Header({ showEnvironment = false }: { showEnvironment?: boolean }) {
@@ -19,6 +27,7 @@ export function Header({ showEnvironment = false }: { showEnvironment?: boolean 
 
   return <>
     {showEnvironment && <div className="environment-bar"><strong>Ambiente de desenvolvimento</strong><span>Recursos de compra não processam pagamentos reais.</span></div>}
+    <div className="announcement"><div className="container"><span>Modelos verificáveis e preços claros</span><Link href="/catalogo?price=ate-100">Achados até R$ 100 →</Link></div></div>
     <header className="site-header">
       <div className="header-main container">
         <Link href="/" className="logo" aria-label="Nordly — página inicial"><span className="logo-mark">N</span><span>NORDLY</span></Link>
@@ -34,9 +43,14 @@ export function Header({ showEnvironment = false }: { showEnvironment?: boolean 
         </nav>
       </div>
       <nav className="category-nav container" aria-label="Categorias principais">
-        <Link className="category-all" href="/catalogo">Todos os produtos</Link>
-        {categories.map(([label, slug]) => <Link key={slug} href={`/catalogo?category=${slug}`}>{label}</Link>)}
-        <Link className="nav-highlight" href="/pesquisa">Como escolhemos</Link>
+        <div className="mega-menu">
+          <Link className="category-all" href="/catalogo">Todos os produtos</Link>
+          <div className="mega-panel">
+            {megaGroups.map((group) => <section key={group.title}><strong>{group.title}</strong>{group.links.map(([label, queryString]) => <Link key={label} href={`/catalogo?${queryString}`}>{label}</Link>)}</section>)}
+            <Link className="mega-all" href="/catalogo">Explorar catálogo completo →</Link>
+          </div>
+        </div>
+        {quickLinks.map(([label, queryString]) => <Link className={label === "Ofertas" ? "nav-offer" : ""} key={label} href={`/catalogo?${queryString}`}>{label}</Link>)}
       </nav>
     </header>
   </>;
