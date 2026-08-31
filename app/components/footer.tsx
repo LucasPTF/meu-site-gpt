@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "./static-link";
 
 export function Footer() {
   return <footer className="site-footer"><div className="container footer-grid">

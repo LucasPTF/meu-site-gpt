@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "../components/static-link";
 
 export default function ResearchPage() {
   return <main className="container research-page"><div className="breadcrumbs"><Link href="/">Início</Link> / Como escolhemos</div><span className="eyebrow">CURADORIA NORDLY</span><h1>Menos opções. Mais clareza para escolher.</h1><p className="product-lead">Cada item publicado precisa ter modelo identificável, ficha técnica consistente, imagem rastreável e um benefício real para o comprador.</p>

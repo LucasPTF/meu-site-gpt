@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./static-link";
 import { FormEvent, useState } from "react";
 import { useStore } from "./store-provider";
 

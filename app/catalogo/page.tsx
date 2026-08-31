@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "../components/static-link";
 import { useMemo, useState, useSyncExternalStore } from "react";
 import { ProductGrid } from "../components/product-card";
 import { useStore } from "../components/store-provider";

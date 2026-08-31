@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "./components/static-link";
 import { ProductGrid } from "./components/product-card";
 import { activeProducts, brl, featuredProducts, getProduct } from "./lib/products";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import Link from "./static-link";
 import { useState } from "react";
 import type { Product } from "../lib/products";
 import { brl, tagDefinitions } from "../lib/products";

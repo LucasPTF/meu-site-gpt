@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "../../components/static-link";
 import { notFound } from "next/navigation";
 import { ProductGrid } from "../../components/product-card";
 import { brl, getProduct, getRelatedProducts } from "../../lib/products";

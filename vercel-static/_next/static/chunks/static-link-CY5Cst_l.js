@@ -1,0 +1,1 @@
+import{i as e}from"./framework-BgSIrAUN.js";var t=e();function n({href:e,children:n,...r}){return(0,t.jsx)(`a`,{href:e,...r,children:n})}export{n as t};

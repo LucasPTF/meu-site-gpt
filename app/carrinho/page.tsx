@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "../components/static-link";
 import Image from "next/image";
 import { getCartProducts, useStore } from "../components/store-provider";
 import { brl, products } from "../lib/products";
