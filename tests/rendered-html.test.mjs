@@ -8,7 +8,7 @@ const catalog = await import(new URL("app/lib/products.ts", root));
 test("ships the commercial Nordly storefront", async () => {
   const [page, layout, css, hosting] = await Promise.all([
     readFile(new URL("app/page.tsx", root), "utf8"), readFile(new URL("app/layout.tsx", root), "utf8"),
-    readFile(new URL("app/globals.css", root), "utf8"), readFile(new URL(".openai/hosting.json", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"), readFile(new URL(".deployment/hosting.json", root), "utf8"),
   ]);
   assert.match(page, /DESTAQUE DA SEMANA/);
   assert.match(page, /COMPRE POR CATEGORIA/);

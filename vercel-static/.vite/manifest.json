@@ -6,8 +6,8 @@
       "_rolldown-runtime-C60lm6uB.js"
     ]
   },
-  "_image-BbKtxrgv.js": {
-    "file": "_next/static/chunks/image-BbKtxrgv.js",
+  "_image-BcAuHfDK.js": {
+    "file": "_next/static/chunks/image-BcAuHfDK.js",
     "name": "image",
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
@@ -23,8 +23,8 @@
       "_framework-BgSIrAUN.js"
     ]
   },
-  "_products-DJe77xSf.js": {
-    "file": "_next/static/chunks/products-DJe77xSf.js",
+  "_products-AjvkgACs.js": {
+    "file": "_next/static/chunks/products-AjvkgACs.js",
     "name": "products"
   },
   "_rolldown-runtime-C60lm6uB.js": {
@@ -39,20 +39,20 @@
     ]
   },
   "app/carrinho/page.tsx": {
-    "file": "_next/static/chunks/page-CXS1Db1u.js",
+    "file": "_next/static/chunks/page-DDl7WjDH.js",
     "name": "page",
     "src": "app/carrinho/page.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_static-link-CY5Cst_l.js",
       "app/components/store-provider.tsx",
-      "_products-DJe77xSf.js",
-      "_image-BbKtxrgv.js",
+      "_products-AjvkgACs.js",
+      "_image-BcAuHfDK.js",
       "_framework-BgSIrAUN.js"
     ]
   },
   "app/catalogo/page.tsx": {
-    "file": "_next/static/chunks/page-DJmBSBuA.js",
+    "file": "_next/static/chunks/page-CuBeA0fn.js",
     "name": "page",
     "src": "app/catalogo/page.tsx",
     "isDynamicEntry": true,
@@ -61,19 +61,19 @@
       "app/components/product-card.tsx",
       "_static-link-CY5Cst_l.js",
       "app/components/store-provider.tsx",
-      "_products-DJe77xSf.js",
+      "_products-AjvkgACs.js",
       "_framework-BgSIrAUN.js"
     ]
   },
   "app/checkout/page.tsx": {
-    "file": "_next/static/chunks/page-CG2-YwA9.js",
+    "file": "_next/static/chunks/page-taGfgQer.js",
     "name": "page",
     "src": "app/checkout/page.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_static-link-CY5Cst_l.js",
       "app/components/store-provider.tsx",
-      "_products-DJe77xSf.js",
+      "_products-AjvkgACs.js",
       "_framework-BgSIrAUN.js"
     ]
   },
@@ -90,7 +90,7 @@
     ]
   },
   "app/components/product-card.tsx": {
-    "file": "_next/static/chunks/product-card-C_Bjnspd.js",
+    "file": "_next/static/chunks/product-card-J9IBrPyN.js",
     "name": "product-card",
     "src": "app/components/product-card.tsx",
     "isDynamicEntry": true,
@@ -98,8 +98,8 @@
       "_rolldown-runtime-C60lm6uB.js",
       "_static-link-CY5Cst_l.js",
       "app/components/store-provider.tsx",
-      "_products-DJe77xSf.js",
-      "_image-BbKtxrgv.js",
+      "_products-AjvkgACs.js",
+      "_image-BcAuHfDK.js",
       "_framework-BgSIrAUN.js"
     ]
   },
@@ -125,18 +125,18 @@
     ]
   },
   "app/produto/[slug]/product-gallery.tsx": {
-    "file": "_next/static/chunks/product-gallery-D4b9cLri.js",
+    "file": "_next/static/chunks/product-gallery-Dobz9b8Z.js",
     "name": "product-gallery",
     "src": "app/produto/[slug]/product-gallery.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-C60lm6uB.js",
-      "_image-BbKtxrgv.js",
+      "_image-BcAuHfDK.js",
       "_framework-BgSIrAUN.js"
     ]
   },
   "app/rastrear/page.tsx": {
-    "file": "_next/static/chunks/page-SNED1BGR.js",
+    "file": "_next/static/chunks/page-BLURwldD.js",
     "name": "page",
     "src": "app/rastrear/page.tsx",
     "isDynamicEntry": true,
@@ -147,7 +147,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "_next/static/chunks/layout-segment-context-BG5GN_hJ.js",
+    "file": "_next/static/chunks/layout-segment-context-BapuRrYv.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -159,7 +159,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "_next/static/chunks/index-Bfchd6IO.js",
+    "file": "_next/static/chunks/index-XuOTilYn.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
@@ -179,7 +179,7 @@
       "app/carrinho/page.tsx",
       "app/components/product-card.tsx",
       "app/produto/[slug]/product-gallery.tsx",
-      "_image-BbKtxrgv.js",
+      "_image-BcAuHfDK.js",
       "app/catalogo/page.tsx"
     ]
   }
